@@ -1,4 +1,5 @@
 import React,{ useState } from 'react'
+import './App.css';
 const App = () => {
   const [height,setHeight] = useState("");
   const [weight,setWeight] = useState("");
@@ -34,19 +35,27 @@ const App = () => {
     setError(null);
   }
   return (
-    <div>
+    <div className='bmiapp'>
       <h2>BMI Calculation</h2>
-      <label>Height: </label>
-      <input value={height} type='text' placeholder='Enter Height' onChange={(e)=>setHeight(e.target.value)}></input>
-      <label>Weight: </label>
-      <input value={weight} type='text' placeholder='Enter Weight' onChange={(e)=>setWeight(e.target.value)}></input>
-      <p>{error}</p>
-      <button onClick={calBMI}>Calculate BMI</button>
-      <button onClick={reset}>Reset</button>
-      <p>Your Height: {height}</p>
-      <p>Your Weight: {weight}</p>
-      <p>BMI Value: {value}</p>
-      <p>BMI Status: {result}</p>
+      <div className='inputbox'>
+        <label>Height: </label>
+        <input value={height} type='text' placeholder='Enter Height' onChange={(e)=>setHeight(e.target.value)}></input>
+        <label>Weight: </label>
+        <input value={weight} type='text' placeholder='Enter Weight' onChange={(e)=>setWeight(e.target.value)}></input>
+      </div>
+      <div className='error'>
+        <p>{error}</p>
+      </div>
+      <div className='btn'>
+        <button onClick={calBMI}>Calculate BMI</button>
+        <button onClick={reset}>Reset</button>
+      </div>
+      <div className='result'>
+        <p>Your Height: {height}</p>
+        <p>Your Weight: {weight}</p>
+        <p>BMI Value: {value}</p>
+        <p>BMI Status: {result}</p>
+      </div>
     </div>
   )
 }
